@@ -1,9 +1,9 @@
-<div class="container aracTablo text-center">
+<div class="container text-center">
     <br>
     <h1>KİRALIK ARAÇLAR</h1>
     <br>
-    <div class="row">
-        <table class="table table-striped">
+    <div class="row aracTablo">
+        <table class="table table-bordered table-sm table-striped">
             <thead>
                 <tr>
                 <th scope="col">Marka</th>
@@ -12,11 +12,6 @@
                 <th scope="col">Yıl</th>
                 <th scope="col">Yakıt</th>
                 <th scope="col">Vites</th>
-                <th scope="col">Km</th>
-                <th scope="col">Kasa Tipi</th>
-                <th scope="col">Çekiş</th>
-                <th scope="col">Motor Gücü</th>
-                <th scope="col">Motor Hacmi</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,11 +28,10 @@
                                 <td> $arrayNo[yil]</td>
                                 <td> $arrayNo[yakit]</td>
                                 <td> $arrayNo[vites]</td>
-                                <td> $arrayNo[km]</td>
-                                <td> $arrayNo[kasaTipi]</td>
-                                <td> $arrayNo[cekis]</td>
-                                <td> $arrayNo[motorGucu]</td>
-                                <td> $arrayNo[motorHacmi]</td>
+                                <td><form action=\"./DetayListele\" method=\"post\">  
+                                <input type=\"hidden\" name=\"id\"value=\"$arrayNo[id]\" >
+                                <button class=\"btn btn-sm btn-warning\" type=\"submit\" >Detay</button>
+                                </form></td>
                                 </tr>";      
                         }
                     ?>

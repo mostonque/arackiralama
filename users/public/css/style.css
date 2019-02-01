@@ -1,4 +1,8 @@
 .aracTablo {
-    margin-top: 200px;
-    width: 15%;
+    width: 60%;
+    margin-left: 20%;
+}
+.aracTabloDetay {
+    width: 50%;
+    margin-left: 25%;
 }

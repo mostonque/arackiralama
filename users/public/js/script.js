@@ -1,0 +1,5 @@
+		function geri(){
+
+			history.back()
+
+		}

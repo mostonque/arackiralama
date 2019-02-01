@@ -16,9 +16,9 @@ class baseController{
         $this->blade = new Blade($this->views, $this->cache);
     }
 
-    public function view($view, $data)
+    public function view($view,$degiskenAdi,$degisken)
     {
-        echo $this->blade->view()->make($view)->with('listele', $data)->render();
+        echo $this->blade->view()->make($view)->with($degiskenAdi, $degisken)->render();
     }
 }
 ?>

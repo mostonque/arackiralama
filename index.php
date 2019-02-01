@@ -9,7 +9,8 @@ require_once 'vendor/autoload.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php include_once 'users/public/css/bootstrap.php'; ?>
-    <link rel="stylesheet" type="text/css" href="users/public/css/style.css">
+    <link rel="stylesheet" href="/users/public/css/style.css">
+    <script src="/users/public/js/script.js"></script>
 
     <title>ARAÇ KİRALAMA</title>
 </head>
@@ -17,7 +18,10 @@ require_once 'vendor/autoload.php';
 <?php
     
     $uri=$_SERVER['REQUEST_URI'];
-    
+    switch($uri){
+        case '/':
+        header('location:/indexController/listele');
+    }
     function parcala($uri){
         $exploded=explode('/',substr($uri,1));
         return $exploded;
@@ -34,11 +38,6 @@ require_once 'vendor/autoload.php';
     $data=call_user_func(array($controller, "$classmethod"));
     
 ?>
-
-
-
-
-
 
 
 
