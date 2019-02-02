@@ -16,9 +16,10 @@ class indexController extends baseController{
     }
     
     public function DetayListele(){
-        $detayListele=db::ornekAl()->aracDetayListele($_POST['id']);
+        $detayListele=db::ornekAl()->aracDetayListele(htmlspecialchars($_GET['id']));
         $this->view('aracDetay','detay',$detayListele);
     }
 
+    
 }
 ?>

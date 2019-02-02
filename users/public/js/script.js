@@ -2,4 +2,5 @@
 
 			history.back()
 
-		}
+        };
+      

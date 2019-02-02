@@ -3,7 +3,7 @@
     <h1>KİRALIK ARAÇLAR</h1>
     <br>
     <div class="row aracTablo">
-        <table class="table table-bordered table-sm table-striped">
+        <table class="table table-bordered  table-sm table-striped">
             <thead>
                 <tr>
                 <th scope="col">Marka</th>
@@ -15,7 +15,6 @@
                 </tr>
             </thead>
             <tbody>
-                
                     <?php
                     $listele=$listele;
                     $listeleSize=count($listele);
@@ -28,14 +27,13 @@
                                 <td> $arrayNo[yil]</td>
                                 <td> $arrayNo[yakit]</td>
                                 <td> $arrayNo[vites]</td>
-                                <td><form action=\"./DetayListele\" method=\"post\">  
+                                <td><form action=\"./DetayListele\" method=\"get\">  
                                 <input type=\"hidden\" name=\"id\"value=\"$arrayNo[id]\" >
                                 <button class=\"btn btn-sm btn-warning\" type=\"submit\" >Detay</button>
                                 </form></td>
                                 </tr>";      
                         }
                     ?>
-                
             </tbody>
         </table>
     </div>

@@ -37,7 +37,14 @@ class db{
         $data=$query->fetchAll();
         return $data;
     }
-   
+    
+    public function aracKirala($id)
+    {
+        $query=$this->baglanti->query("UPDATE araclar SET durum=1 WHERE id=$id",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+        var_dump($data);
+        return $data;
+    }
 
 
 

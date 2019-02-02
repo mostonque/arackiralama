@@ -2,7 +2,7 @@
     <br>
     <h1>ARAC DETAY</h1>
     <br>
-    <div class="col-md-2"></a><button class="btn btn-warning" onClick="geri()">Geri Dön</button></div>
+   
     <div class="row aracTabloDetay">
         <table class="table table-sm table-dark table-striped">
             <tbody>
@@ -52,6 +52,15 @@
                     ?>   
                 
             </tbody>
-        </table>
+        </table> 
     </div>
-</div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6"></a><button class="btn btn-warning" onClick="geri()">Geri Dön</button></div>
+        <div class="col-md-6"><form action="/kiralaController/kiralaForm" method="GET">
+                    <input type="hidden" name="id" value="<?php print $detay['id'];?>">
+                    <button type="submit" class="btn btn-primary" >&emsp;KİRALA&emsp;</button>
+                </form></div>
+    </div>
+   
+</div> 

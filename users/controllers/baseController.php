@@ -16,7 +16,7 @@ class baseController{
         $this->blade = new Blade($this->views, $this->cache);
     }
 
-    public function view($view,$degiskenAdi,$degisken)
+    public function view($view,$degiskenAdi=NULL,$degisken=NULL)
     {
         echo $this->blade->view()->make($view)->with($degiskenAdi, $degisken)->render();
     }
