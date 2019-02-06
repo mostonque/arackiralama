@@ -9,7 +9,8 @@
         "psr-4": {
             "Controllers\\":"users/controllers/",
             "Models\\":"users/models/",
-            "views\\":"users/view/"
+            "views\\":"users/view/",
+            "js\\":"user/public/js"
         }
     }
 }

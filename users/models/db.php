@@ -19,34 +19,55 @@ class db{
         
     }
 
-    public static function ornekAl(){
+    public static function ornekAl()
+    {
         if(!self::$ornek){
             self::$ornek=new db();
         }    
         return self::$ornek;
-        
     }
-    public function aracListele(){
+    public function aracListele()
+    {
         $query=$this->baglanti->query("SELECT * FROM araclar WHERE durum=0",\PDO::FETCH_ASSOC);
         $data=$query->fetchAll();
         return $data;
+        $this->baglanti=NULL;
     }
 
-    public function aracDetayListele($id){
-        $query=$this->baglanti->query("SELECT * FROM araclar Where id=$id",\PDO::FETCH_ASSOC);
+    public function aracDetayListele($id)
+    {
+        $query=$this->baglanti->query("SELECT * FROM araclar WHERE id=$id",\PDO::FETCH_ASSOC);
         $data=$query->fetchAll();
         return $data;
+        $this->baglanti=NULL;
     }
     
-    public function aracKirala($id)
-    {
-        $query=$this->baglanti->query("UPDATE araclar SET durum=1 WHERE id=$id",\PDO::FETCH_ASSOC);
+    public function aracKirala($aracId,$ad,$soyad,$email,$tc,$telefon)
+    {   
+        $kullaniciId=$_SESSION['id'];
+        $query=$this->baglanti->query("SELECT * FROM users WHERE id='$kullaniciId' AND ad='$ad' AND soyad='$soyad' AND mail='$email' AND tc='$tc' AND telefon='$telefon'",\PDO::FETCH_ASSOC);
         $data=$query->fetchAll();
-        var_dump($data);
-        return $data;
+        
+        if(sizeof($data)==1)
+        {
+            $this->baglanti->query("UPDATE araclar SET durum=1 WHERE id=$aracId",\PDO::FETCH_ASSOC);
+            return $this;
+        }        
+        $this->baglanti=NULL;
     }
 
+    public function uyeKayit($ad,$soyad,$tc,$email,$sifre,$telefon)
+    { 
+        $query=$this->baglanti->exec("INSERT INTO users(ad,soyad,tc,mail,sifre,telefon) VALUES('$ad','$soyad','$tc','$email','$sifre','$telefon')");
+        return $query;
+    }
 
+    public function girisControl($mail,$sifre ){
+        $query=$this->baglanti->query("SELECT * FROM users WHERE mail='$mail' AND sifre='$sifre'",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+        return $data;
+        $this->baglanti=NULL;
+    }
 
 
 }
