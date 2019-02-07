@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 06 Şub 2019, 16:46:12
+-- Üretim Zamanı: 07 Şub 2019, 14:40:56
 -- Sunucu sürümü: 10.1.36-MariaDB
 -- PHP Sürümü: 7.2.11
 
@@ -73,8 +73,8 @@ CREATE TABLE `araclar` (
 --
 
 INSERT INTO `araclar` (`id`, `marka`, `seri`, `model`, `yil`, `yakit`, `vites`, `km`, `kasaTipi`, `cekis`, `motorGucu`, `motorHacmi`, `durum`) VALUES
-(1, 'mercedes', 'e', 'e 250 maybach pro ultimate super hydro', 2010, 'dizel', 'otomatik', 60000, 'sedan', 'arkadan itis', 400, 1499, 1),
-(3, 'BMW', 'M', '525d xdrive', 2016, 'dizel', 'otomatik', 10000, 'sedan', 'önden çekiş', 600, 3978, 1),
+(1, 'mercedes', 'e', 'e 250 maybach pro ultimate super hydro', 2010, 'dizel', 'otomatik', 60000, 'sedan', 'arkadan itis', 400, 1499, 0),
+(3, 'BMW', 'M', '525d xdrive', 2016, 'dizel', 'otomatik', 10000, 'sedan', 'önden çekiş', 600, 3978, 0),
 (5, 'audi', 'a', '200', 2010, 'benzin', 'otomatik', 3000, 'hatchbag', 'ortadan itis', 400, 1499, 0);
 
 -- --------------------------------------------------------
@@ -104,6 +104,30 @@ INSERT INTO `users` (`id`, `ad`, `soyad`, `tc`, `mail`, `sifre`, `telefon`, `son
 (105, 'mert', 'fender', '22222222222', 'mertfender123@gmail.com', 'asdasd', '11111111111', NULL, NULL),
 (106, 'serhat', 'pekedis', '11111111111', 'serhatpekedis@gmail.com', 'asdasd', '22222222222', NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `yorumlar`
+--
+
+CREATE TABLE `yorumlar` (
+  `id` int(11) NOT NULL,
+  `idUser` varchar(11) DEFAULT NULL,
+  `nameUser` varchar(100) DEFAULT NULL,
+  `idArac` varchar(11) DEFAULT NULL,
+  `yorum` varchar(255) DEFAULT NULL,
+  `durum` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `yorumlar`
+--
+
+INSERT INTO `yorumlar` (`id`, `idUser`, `nameUser`, `idArac`, `yorum`, `durum`) VALUES
+(5, '106', 'serhat', '5', 'asdasdasd', 1),
+(6, '104', 'temel', '5', 'BEN TEMEL', 1),
+(7, '124', 'osman', '5', 'BEN osman\r\n', 1);
+
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
@@ -130,6 +154,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `mail` (`mail`);
 
 --
+-- Tablo için indeksler `yorumlar`
+--
+ALTER TABLE `yorumlar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -150,6 +180,12 @@ ALTER TABLE `araclar`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `yorumlar`
+--
+ALTER TABLE `yorumlar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
