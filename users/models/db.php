@@ -35,13 +35,18 @@ class db{
     }
 
     public function aracDetayListele($id)
-    {
+    {       
         $query=$this->baglanti->query("SELECT * FROM araclar WHERE id=$id",\PDO::FETCH_ASSOC);
         $data=$query->fetchAll();
         return $data;
         $this->baglanti=NULL;
     }
-    
+    public function aracYorumListele($idArac)
+    {
+        $query=$this->baglanti->query("SELECT * FROM yorumlar WHERE idArac=$idArac",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+        return $data;
+    }
     public function aracKirala($aracId,$ad,$soyad,$email,$tc,$telefon)
     {   
         $kullaniciId=$_SESSION['id'];
@@ -69,6 +74,17 @@ class db{
         $this->baglanti=NULL;
     }
 
+    public function yorumEkle($idUser,$nameUser,$idArac,$yorum){
+        $query=$this->baglanti->query("SELECT * FROM yorumlar WHERE idUser='$idUser' AND idArac='$idArac'",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+        if(count($data)===1){
+            return FALSE;
+        }else{
+        $add=$this->baglanti->exec("INSERT INTO yorumlar(idUser,nameUser,idArac,yorum,durum) VALUES('$idUser','$nameUser','$idArac','$yorum','1')");
+        return $add;
+        }
+        
+    }
 
 }
 

@@ -36,13 +36,20 @@ require_once 'vendor/autoload.php';
                                
                                 
                             </ul>
-                            <span class=\"navbar-text text-dark\">
-                               Hoşgeldin <b class=\"text-success\"> $_SESSION[ad] </b>
-                            </span>
-                            &emsp;&emsp;
-                            <span class=\"navbar-text text-dark\">
-                                <a href=\"/cikisController\" class=\"text-success font-weight-bold\">[ ÇIKIŞ ]</a>
-                            </span>
+                                <div class=\"btn-group\">
+                                <button type=\"button\" class=\"btn btn-dark dropdown-toggle \" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                 <b class=\"text-light\"> $_SESSION[ad] </b>
+                                </button>
+                                <div class=\"dropdown-menu\">
+                                    <a class=\"dropdown-item\" href=\"#\">Mail değiştir</a>
+                                    <a class=\"dropdown-item\" href=\"#\">ad değiştir</a>
+                                    <a class=\"dropdown-item\" href=\"#\">soyad değiştir</a>
+                                    <div class=\"dropdown-divider\"></div>
+                                    <a class=\"dropdown-item\" href=\"#\">Kiraladığım araçlar</a>
+                                    <div class=\"dropdown-divider\"></div>
+                                    <a href=\"/cikisController\" class=\"text-danger text-center dropdown-item font-weight-bold\">[ ÇIKIŞ ]</a>
+                                </div>
+                                </div>
                         </div>
                         </nav>
                     </div>
@@ -75,7 +82,6 @@ require_once 'vendor/autoload.php';
 ?>
 
 <?php
-
     $uri=$_SERVER['REQUEST_URI'];
     switch($uri){
         case '/':
@@ -114,6 +120,7 @@ require_once 'vendor/autoload.php';
     };
    
 ?>
+
 
 </body>
 </html>

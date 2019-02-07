@@ -7,11 +7,10 @@
         <table class="table table-sm table-dark table-striped">
             <tbody>
             
-            <?php  
-                    $detaySize=count($detay);
-                    for($i=0;$i<=$detaySize-1;$i++){
-                        $detay=$detay[$i];
-                                
+            <?php  $detay2=$detay;
+                    for($i=0;$i<=sizeof($detay[0]);$i++){
+                        $detay=$detay[0][$i];
+                        
                         echo " <tr>
                         <th scope=\"row\">Marka</th>
                         <td>$detay[marka]</td>
@@ -64,3 +63,47 @@
     </div>
    
 </div> 
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-2">
+        <h3 class=" mt-3 mb-4 text-danger ">ARAÇ YORUMLARI</h3>
+            <table class="table table-striped">
+                <?php
+                
+                
+                for($i=0;$i<=sizeof($detay2[1])-1;$i++){
+                    $detay2s=$detay2[1][$i];
+                    echo "
+                    <thead>
+                        <tr>
+                        <th class=\"text-success\" scope=\"col\">".strtoupper($detay2s[nameUser])."</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td class=\"text-primary\" scope=\"row\">$detay2s[yorum]</td>
+                        </tr>
+                    </tbody>
+                    ";
+                }
+                
+                ?>
+            </table>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <form method="POST" action="/yorumController/yorumGonder">
+                <div class="form-group mt-5">
+                    <textarea class="form-control" name="yorum" required id="exampleFormControlTextarea1" placeholder="Araç hakkındaki görüşlerinizi belirtebilirsiniz." rows="3"></textarea>
+                    <input type="hidden" name="idArac" value="<?php print $_GET['id']; ?>">
+                    <button class="btn btn-warning mt-1 mb-5 float-right" type="submit">Gönder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

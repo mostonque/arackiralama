@@ -10,7 +10,22 @@ class girisController extends baseController{
     }
 
     public function girisPage(){
-        $this->view('giris');
+        if(isset($_SESSION['id'])&& isset($_SESSION['ad']))
+        {
+            echo"
+            <div class=\"container text-center \">
+                <div class=\"row \">
+                    <div class=\"col-md-3\"></div>
+                    <div class=\"col-md-6  kiralaError\">
+                        <h3 class=\"bg-danger text-light \">Zaten giriş yaptınız. Bu sayfaya gidebilmek için çıkış yapmalısınız.</h3>                             
+                    <div>
+                </div>
+            </div>
+        ";
+        header('location:/');
+        }else{
+            $this->view('giris');
+        }
     }   
 
     public function girisControl(){
