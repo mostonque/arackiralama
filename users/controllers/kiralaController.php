@@ -13,6 +13,7 @@ class kiralaController extends baseController{
        
         if(isset($_SESSION['ad']) && !empty($_SESSION['ad']))
         {
+            
             $detayListele=db::ornekAl()->aracDetayListele(htmlspecialchars($_GET['id']));
             $this->view('aracKiralaForm','aracDetay',$detayListele);
         }else{
@@ -37,6 +38,7 @@ class kiralaController extends baseController{
         if(isset($_SESSION['ad']) && !empty($_SESSION['ad']))
         {
             if(isset($_POST['id']) && !empty($_POST['id'])){
+
                 if(isset($_POST['ad']) && !empty($_POST['ad'])){
                     $ad=htmlspecialchars(trim($_POST['ad']));
                 }else{
@@ -57,6 +59,10 @@ class kiralaController extends baseController{
                     $telefon=htmlspecialchars(trim($_POST['telefon']));
                 }else{
                     $hata='<b class="border border border-warning badge badge-danger font-weight-bold">Telefon</b> alanı boş veya hatalı !';
+                }if(isset($_POST['gun']) && !empty($_POST['gun']) ){
+                    $gun=htmlspecialchars(trim($_POST['gun']));
+                }else{
+                    $hata='<b class="border border border-warning badge badge-danger font-weight-bold">Gün</b> alanı boş veya hatalı !';
                 }
                 if(isset($hata) && !empty($hata)){
                     echo"
@@ -72,7 +78,7 @@ class kiralaController extends baseController{
                     ";
                     
                 }else{
-                    $arac=db::ornekAl()->aracKirala(htmlspecialchars(trim($_POST['id'])),$ad,$soyad,$email,$tc,$telefon);
+                    $arac=db::ornekAl()->aracKirala(htmlspecialchars(trim($_POST['id'])),$ad,$soyad,$email,$tc,$telefon,$gun);
 
                     if(isset($arac) && sizeof($arac)==1)
                     {

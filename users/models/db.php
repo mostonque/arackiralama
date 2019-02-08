@@ -47,7 +47,7 @@ class db{
         $data=$query->fetchAll();
         return $data;
     }
-    public function aracKirala($aracId,$ad,$soyad,$email,$tc,$telefon)
+    public function aracKirala($aracId,$ad,$soyad,$email,$tc,$telefon,$gun)
     {   
         $kullaniciId=$_SESSION['id'];
         $query=$this->baglanti->query("SELECT * FROM users WHERE id='$kullaniciId' AND ad='$ad' AND soyad='$soyad' AND mail='$email' AND tc='$tc' AND telefon='$telefon'",\PDO::FETCH_ASSOC);
@@ -56,6 +56,7 @@ class db{
         if(sizeof($data)==1)
         {
             $this->baglanti->query("UPDATE araclar SET durum=1 WHERE id=$aracId",\PDO::FETCH_ASSOC);
+            $this->baglanti->query("INSERT INTO rezervearac(idArac,idUser,rezerveGun) VALUES('$aracId','$kullaniciId','$gun')");
             return $this;
         }        
         $this->baglanti=NULL;

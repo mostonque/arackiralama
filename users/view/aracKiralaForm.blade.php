@@ -2,7 +2,7 @@
 $detay=$aracDetay[0];	
 
 ?>
-<div class="container">
+<div class="container mb-5">
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
@@ -70,6 +70,15 @@ $detay=$aracDetay[0];
 							</div>
 						</div>
 
+						<div class="form-group">
+							<label for="gun" class="cols-sm-2 badge badge-warning control-label">Kiralanacak Gün sayısı</label> <span class="badge badge-secondary font-weight-light">en fazla <span class="text-warning font-weight-bold">9</span> gün</span>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input class="form-control" type="number"  required autocomplete="off" max="9" id="gun" name="gun"   />
+								</div>
+							</div>
+						</div>
 
 						<!-- Button trigger modal -->
 						<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
