@@ -70,7 +70,12 @@ class db{
     public function girisControl($mail,$sifre ){
         $query=$this->baglanti->query("SELECT * FROM users WHERE mail='$mail' AND sifre='$sifre'",\PDO::FETCH_ASSOC);
         $data=$query->fetchAll();
-        return $data;
+        $usrId=$data[0]['id'];
+        if($usrId){
+            $query=$this->baglanti->exec("UPDATE users SET sonGirisTarih=now(),sonGirisIp='$_SERVER[REMOTE_ADDR]' WHERE id=$usrId");
+            return $data;
+        }
+        
         $this->baglanti=NULL;
     }
 

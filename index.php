@@ -1,9 +1,16 @@
-<?php
+<?php 
 session_start();
+ob_start();
+?>
+<?php
+date_default_timezone_set('Europe/Istanbul');
 error_reporting(E_ALL);
 ini_set('display_errors',1);
 
 require_once 'vendor/autoload.php';
+
+var_dump($_SERVER['REMOTE_ADDR']);
+
 
 ?>
 <!DOCTYPE html>

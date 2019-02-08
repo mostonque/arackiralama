@@ -67,27 +67,32 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-8 offset-2">
-        <h3 class=" mt-3 mb-4 text-danger ">ARAÇ YORUMLARI</h3>
+        
             <table class="table table-striped">
                 <?php
-                
-                
-                for($i=0;$i<=sizeof($detay2[1])-1;$i++){
-                    $detay2s=$detay2[1][$i];
-                    echo "
-                    <thead>
-                        <tr>
-                        <th class=\"text-success\" scope=\"col\">".strtoupper($detay2s[nameUser])."</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td class=\"text-primary\" scope=\"row\">$detay2s[yorum]</td>
-                        </tr>
-                    </tbody>
-                    ";
+               echo "<h3 class=\" mt-3 mb-4 text-light text-center bg-info \">ARAÇ YORUMLARI</h3>";
+                if(sizeof($detay2[1])>0)
+                {
+                    for($i=0;$i<=sizeof($detay2[1])-1;$i++){
+                        $detay2s=$detay2[1][$i];
+                        echo "
+                        <thead>
+                            <tr>
+                            <th class=\"text-success\" scope=\"col\">".strtoupper($detay2s[nameUser])."</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td class=\"text-primary\" scope=\"row\">$detay2s[yorum]</td>
+                            </tr>
+                        </tbody>
+
+                        
+                        ";
+                    }
+                }else{
+                    echo '<p class=" text-danger border border-warning">ÜRÜNE AİT YORUM BULUNMAMAKTADIR<p>';
                 }
-                
                 ?>
             </table>
         </div>
