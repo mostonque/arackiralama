@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 08 Şub 2019, 11:20:07
+-- Üretim Zamanı: 11 Şub 2019, 16:41:56
 -- Sunucu sürümü: 10.1.36-MariaDB
 -- PHP Sürümü: 7.2.11
 
@@ -73,7 +73,7 @@ CREATE TABLE `araclar` (
 --
 
 INSERT INTO `araclar` (`id`, `marka`, `seri`, `model`, `yil`, `yakit`, `vites`, `km`, `kasaTipi`, `cekis`, `motorGucu`, `motorHacmi`, `durum`) VALUES
-(1, 'mercedes', 'e', 'e 250 maybach pro ultimate super hydro', 2010, 'dizel', 'otomatik', 60000, 'sedan', 'arkadan itis', 400, 1499, 1),
+(1, 'mercedes', 'e', 'e 250 maybach pro ultimate super hydro', 2010, 'dizel', 'otomatik', 60000, 'sedan', 'arkadan itis', 400, 1499, 0),
 (3, 'BMW', 'M', '525d xdrive', 2016, 'dizel', 'otomatik', 10000, 'sedan', 'önden çekiş', 600, 3978, 1),
 (5, 'audi', 'a', '200', 2010, 'benzin', 'otomatik', 3000, 'hatchbag', 'ortadan itis', 400, 1499, 0);
 
@@ -95,8 +95,7 @@ CREATE TABLE `rezervearac` (
 --
 
 INSERT INTO `rezervearac` (`id`, `idArac`, `idUser`, `rezerveGun`) VALUES
-(1, '1', '106', '4'),
-(2, '3', '106', '6');
+(16, '3', '106', '5');
 
 -- --------------------------------------------------------
 
@@ -123,7 +122,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `ad`, `soyad`, `tc`, `mail`, `sifre`, `telefon`, `sonGirisTarih`, `sonGirisIp`) VALUES
 (80, 'serhat', 'pekedis', '31241231231', 'mertfender12367@gmail.com', '1241231', '12122131231', NULL, NULL),
 (105, 'mert', 'fender', '22222222222', 'mertfender123@gmail.com', 'asdasd', '11111111111', NULL, NULL),
-(106, 'serhat', 'pekedis', '11111111111', 'serhatpekedis@gmail.com', 'asdasd', '22222222222', '2019-02-08 09:15:51', '::1');
+(106, 'SERHAT', 'YERDE', '11111111111', 'mertfender1253@gmail.com', 'asdasd', '22222222222', '2019-02-11 15:24:31', '::1');
 
 -- --------------------------------------------------------
 
@@ -206,7 +205,7 @@ ALTER TABLE `araclar`
 -- Tablo için AUTO_INCREMENT değeri `rezervearac`
 --
 ALTER TABLE `rezervearac`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `users`

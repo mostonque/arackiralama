@@ -9,8 +9,6 @@ ini_set('display_errors',1);
 
 require_once 'vendor/autoload.php';
 
-var_dump($_SERVER['REMOTE_ADDR']);
-
 
 ?>
 <!DOCTYPE html>
@@ -32,8 +30,8 @@ var_dump($_SERVER['REMOTE_ADDR']);
             <div class=\"container\">
                 <div class=\"row\">
                     <div class=\"col-md-12 mt-5\">
-                        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
-                            <a class=\"navbar-brand\" href=\"/\">Car Rental</a>
+                        <nav class=\"navbar navbar-expand-lg navbar-primary bg-light\">
+                            <a class=\"navbar-brand border-right border-primary\" href=\"/\">Car Rental &nbsp;</a>
                             <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\" aria-controls=\"navbarText\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                             <span class=\"navbar-toggler-icon\"></span>
                             </button>
@@ -44,13 +42,11 @@ var_dump($_SERVER['REMOTE_ADDR']);
                                 
                             </ul>
                                 <div class=\"btn-group\">
-                                <button type=\"button\" class=\"btn btn-dark dropdown-toggle \" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                                 <b class=\"text-light\"> $_SESSION[ad] </b>
+                                <button type=\"button\" class=\"btn btn-outline-info dropdown-toggle \" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                 <b class=\"\"> $_SESSION[ad] </b>
                                 </button>
                                 <div class=\"dropdown-menu\">
-                                    <a class=\"dropdown-item\" href=\"#\">Mail değiştir</a>
-                                    <a class=\"dropdown-item\" href=\"#\">ad değiştir</a>
-                                    <a class=\"dropdown-item\" href=\"#\">soyad değiştir</a>
+                                    <a class=\"dropdown-item\" href=\"/profilController/profilim\">Profilim</a>
                                     <div class=\"dropdown-divider\"></div>
                                     <a class=\"dropdown-item\" href=\"#\">Kiraladığım araçlar</a>
                                     <div class=\"dropdown-divider\"></div>

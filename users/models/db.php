@@ -25,6 +25,7 @@ class db{
             self::$ornek=new db();
         }    
         return self::$ornek;
+        
     }
     public function aracListele()
     {
@@ -46,6 +47,7 @@ class db{
         $query=$this->baglanti->query("SELECT * FROM yorumlar WHERE idArac=$idArac",\PDO::FETCH_ASSOC);
         $data=$query->fetchAll();
         return $data;
+        $this->baglanti=NULL;
     }
     public function aracKirala($aracId,$ad,$soyad,$email,$tc,$telefon,$gun)
     {   
@@ -55,9 +57,18 @@ class db{
         
         if(sizeof($data)==1)
         {
+           $query=$this->baglanti->query("SELECT * FROM rezervearac WHERE idUser='$kullaniciId'");
+           $data=$query->fetchAll();
+            if($data)
+            {
+                return FALSE;
+            }else{
             $this->baglanti->query("UPDATE araclar SET durum=1 WHERE id=$aracId",\PDO::FETCH_ASSOC);
             $this->baglanti->query("INSERT INTO rezervearac(idArac,idUser,rezerveGun) VALUES('$aracId','$kullaniciId','$gun')");
             return $this;
+            }
+        }else{
+            return FALSE;
         }        
         $this->baglanti=NULL;
     }
@@ -66,6 +77,8 @@ class db{
     { 
         $query=$this->baglanti->exec("INSERT INTO users(ad,soyad,tc,mail,sifre,telefon) VALUES('$ad','$soyad','$tc','$email','$sifre','$telefon')");
         return $query;
+        $this->baglanti=NULL;
+
     }
 
     public function girisControl($mail,$sifre ){
@@ -89,8 +102,72 @@ class db{
         $add=$this->baglanti->exec("INSERT INTO yorumlar(idUser,nameUser,idArac,yorum,durum) VALUES('$idUser','$nameUser','$idArac','$yorum','1')");
         return $add;
         }
+        $this->baglanti=NULL;
         
     }
+
+    public function uyeBilgi(){
+        $query=$this->baglanti->query("SELECT ad,soyad,tc,mail,telefon FROM users WHERE id=$_SESSION[id]",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+        return $data;
+        $this->baglanti=NULL;
+
+    }
+    
+    public function uyeRezerveArac(){
+        $query=$this->baglanti->query("SELECT * FROM rezervearac JOIN araclar ON rezervearac.idArac = araclar.id ORDER BY idUser=$_SESSION[id]",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+        return $data;
+        $this->baglanti=NULL;
+
+    }
+
+    public function isimGuncelle($tc,$yeniAd){
+        $query=$this->baglanti->query("SELECT * FROM users WHERE id='$_SESSION[id]' AND tc='$tc'",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+
+        if(count($data)===1)
+        {
+            $query=$this->baglanti->query("UPDATE users SET ad='$yeniAd' Where id='$_SESSION[id]'");
+            $data=$query->fetchAll();
+            return $data;
+        }else{
+            return FALSE;
+        }
+        $this->baglanti=NULL;
+    }
+
+    public function soyisimGuncelle($tc,$yeniSoyAd){
+        $query=$this->baglanti->query("SELECT * FROM users WHERE id='$_SESSION[id]' AND tc='$tc'",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+
+        if(count($data)===1)
+        {
+            $query=$this->baglanti->query("UPDATE users SET soyad='$yeniSoyAd' Where id='$_SESSION[id]'");
+            $data=$query->fetchAll();
+            return $data;
+        }else{
+            return FALSE;
+        }
+        $this->baglanti=NULL;
+    }
+
+    public function mailGuncelle($tc,$email){
+        $query=$this->baglanti->query("SELECT * FROM users WHERE id='$_SESSION[id]' AND tc='$tc'",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+
+        if(count($data)===1)
+        {
+            $query=$this->baglanti->query("UPDATE users SET mail='$email' Where id='$_SESSION[id]'");
+            $data=$query->fetchAll();
+            return $data;
+        }else{
+            return FALSE;
+        }
+        $this->baglanti=NULL;
+    }
+
+
 
 }
 

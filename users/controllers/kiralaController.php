@@ -79,8 +79,8 @@ class kiralaController extends baseController{
                     
                 }else{
                     $arac=db::ornekAl()->aracKirala(htmlspecialchars(trim($_POST['id'])),$ad,$soyad,$email,$tc,$telefon,$gun);
-
-                    if(isset($arac) && sizeof($arac)==1)
+                    
+                    if($arac)
                     {
                         $this->view('kiralaBasarili');
                     }else{
@@ -89,7 +89,7 @@ class kiralaController extends baseController{
                                 <div class=\"row \">
                                     <div class=\"col-md-3\"></div>
                                     <div class=\"col-md-6  kiralaError\">
-                                        <h3 class=\" bg-danger text-warning \">Girdiğiniz bilgilersistemde ki Bilgilerinizle eşleşemiyor.</h3>
+                                        <h3 class=\" bg-danger text-warning \">Girdiğiniz bilgiler sistemde ki Bilgilerinizle eşleşemiyor yada Rezerve ettiğiniz arac var</h3>
                                         <h3 class=\"bg-dark text-warning\">Sizi anasayfaya yönlendiriyoruz.</h3>                            
                                     <div>
                                 </div>
