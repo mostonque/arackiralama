@@ -72,7 +72,7 @@ class db{
         }        
         $this->baglanti=NULL;
     }
-
+    
     public function uyeKayit($ad,$soyad,$tc,$email,$sifre,$telefon)
     { 
         $query=$this->baglanti->exec("INSERT INTO users(ad,soyad,tc,mail,sifre,telefon) VALUES('$ad','$soyad','$tc','$email','$sifre','$telefon')");
@@ -159,6 +159,36 @@ class db{
         if(count($data)===1)
         {
             $query=$this->baglanti->query("UPDATE users SET mail='$email' Where id='$_SESSION[id]'");
+            $data=$query->fetchAll();
+            return $data;
+        }else{
+            return FALSE;
+        }
+        $this->baglanti=NULL;
+    }
+
+    public function sifreGuncelle($tc,$sifre){
+        $query=$this->baglanti->query("SELECT * FROM users WHERE id='$_SESSION[id]' AND tc='$tc'",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+
+        if(count($data)===1)
+        {
+            $query=$this->baglanti->query("UPDATE users SET sifre='$sifre' Where id='$_SESSION[id]'");
+            $data=$query->fetchAll();
+            return $data;
+        }else{
+            return FALSE;
+        }
+        $this->baglanti=NULL;
+    }
+       
+    public function sifreUnuttumGuncelle($tc,$mail,$telefon,$sifre){
+        $query=$this->baglanti->query("SELECT * FROM users WHERE  tc='$tc' AND mail='$mail' AND telefon='$telefon'",\PDO::FETCH_ASSOC);
+        $data=$query->fetchAll();
+        $usrID=$data[0]['id'];
+        if(count($data)===1)
+        {
+            $query=$this->baglanti->query("UPDATE users SET sifre='$sifre' Where id='$usrID'");
             $data=$query->fetchAll();
             return $data;
         }else{

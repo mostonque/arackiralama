@@ -56,7 +56,7 @@ class girisController extends baseController{
             }
 
         }else{
-            echo 'Girdiğiniz bilgiler yanlıştır.';
+            echo 'Girdiğiniz bilgiler eksik veya yanlıştır.';
         }
     }
 

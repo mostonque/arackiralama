@@ -37,7 +37,7 @@ class profilController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-dark  text-success \">DEĞİŞİKLİĞİNİZ BAŞARIYLA KAYDEDİLDİ.</h3>                          
+                        <h3 class=\" text-success \">DEĞİŞİKLİĞİNİZ BAŞARIYLA KAYDEDİLDİ.</h3>                          
                     <div>
                 </div>
             </div>
@@ -49,7 +49,7 @@ class profilController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-secondary  text-warning \">GİRDİĞİNİZ BİLGİLERE AİT KULLANICI BULUNAMADI. LÜTFEN FORMU DİKKATLİ DOLDURUNUZ.</h3>   
+                        <h3 class=\"  text-danger \">GİRDİĞİNİZ BİLGİLERE AİT KULLANICI BULUNAMADI. LÜTFEN FORMU DİKKATLİ DOLDURUNUZ.</h3>   
                         <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
                     <div>
                 </div>
@@ -63,7 +63,7 @@ class profilController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-dark  text-warning \">Eksik veya hatalı giriş.<br> Tekrar deneyiniz.</h3>   
+                        <h3 class=\" text-danger \">Eksik veya hatalı giriş.<br> Tekrar deneyiniz.</h3>   
                         <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
                     <div>
                 </div>
@@ -77,14 +77,14 @@ class profilController extends baseController{
             $tc=htmlspecialchars(stripslashes(trim($_POST['tc'])));
             $yeniSoyAd=htmlspecialchars(stripslashes(trim($_POST['newSurName'])));
             
-            $isimGuncelle=db::ornekAl()->soyisimGuncelle($tc,$yeniSoyAd);
-            if($isimGuncelle!==FALSE){
+            $soyadGuncelle=db::ornekAl()->soyisimGuncelle($tc,$yeniSoyAd);
+            if($soyadGuncelle!==FALSE){
                 echo"
             <div class=\"container text-center \">
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-dark  text-success \">DEĞİŞİKLİĞİNİZ BAŞARIYLA KAYDEDİLDİ.</h3>                          
+                        <h3 class=\"  text-success \">DEĞİŞİKLİĞİNİZ BAŞARIYLA KAYDEDİLDİ.</h3>                          
                     <div>
                 </div>
             </div>
@@ -96,7 +96,7 @@ class profilController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-secondary  text-warning \">GİRDİĞİNİZ BİLGİLERE AİT KULLANICI BULUNAMADI. LÜTFEN FORMU DİKKATLİ DOLDURUNUZ.</h3>   
+                        <h3 class=\"text-danger \">GİRDİĞİNİZ BİLGİLERE AİT KULLANICI BULUNAMADI. LÜTFEN FORMU DİKKATLİ DOLDURUNUZ.</h3>   
                         <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
                     <div>
                 </div>
@@ -110,7 +110,7 @@ class profilController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-dark  text-warning \">Eksik veya hatalı giriş.<br> Tekrar deneyiniz.</h3>   
+                        <h3 class=\"  text-danger \">Eksik veya hatalı giriş.<br> Tekrar deneyiniz.</h3>   
                         <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
                     <div>
                 </div>
@@ -124,14 +124,14 @@ class profilController extends baseController{
             $tc=htmlspecialchars(stripslashes(trim($_POST['tc'])));
             $email=htmlspecialchars(stripslashes(trim($_POST['email'])));
             
-            $isimGuncelle=db::ornekAl()->mailGuncelle($tc,$email);
-            if($isimGuncelle!==FALSE){
+            $mailGuncelle=db::ornekAl()->mailGuncelle($tc,$email);
+            if($mailGuncelle!==FALSE){
                 echo"
             <div class=\"container text-center \">
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-dark  text-success \">DEĞİŞİKLİĞİNİZ BAŞARIYLA KAYDEDİLDİ.</h3>                          
+                        <h3 class=\"  text-success \">DEĞİŞİKLİĞİNİZ BAŞARIYLA KAYDEDİLDİ.</h3>                          
                     <div>
                 </div>
             </div>
@@ -143,7 +143,7 @@ class profilController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-secondary  text-warning \">GİRDİĞİNİZ BİLGİLERE AİT KULLANICI BULUNAMADI. LÜTFEN FORMU DİKKATLİ DOLDURUNUZ.</h3>   
+                        <h3 class=\"   text-danger \">GİRDİĞİNİZ BİLGİLERE AİT KULLANICI BULUNAMADI. LÜTFEN FORMU DİKKATLİ DOLDURUNUZ.</h3>   
                         <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
                     <div>
                 </div>
@@ -157,7 +157,7 @@ class profilController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-dark  text-warning \">Eksik veya hatalı giriş.<br> Tekrar deneyiniz.</h3>   
+                        <h3 class=\"  text-danger \">Eksik veya hatalı giriş.<br> Tekrar deneyiniz.</h3>   
                         <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
                     <div>
                 </div>
@@ -165,6 +165,54 @@ class profilController extends baseController{
         ";
         }
     }
+
+    public function sifreDegistir(){
+        if(isset($_POST['tc']) && strlen($_POST['tc'])===11   && !empty($_POST['tc']) && isset($_POST['sifre']) &&  !empty($_POST['sifre'])){
+            $tc=htmlspecialchars(stripslashes(trim($_POST['tc'])));
+            $sifre=htmlspecialchars(stripslashes(trim($_POST['sifre'])));
+            
+            $sifreGuncelle=db::ornekAl()->sifreGuncelle($tc,$sifre);
+            if($sifreGuncelle!==FALSE){
+                echo"
+            <div class=\"container text-center \">
+                <div class=\"row \">
+                    <div class=\"col-md-3\"></div>
+                    <div class=\"col-md-6  kiralaError\">
+                        <h3 class=\" text-success \">DEĞİŞİKLİĞİNİZ BAŞARIYLA KAYDEDİLDİ.</h3>                          
+                    <div>
+                </div>
+            </div>
+        ";
+        header('Refresh:2; url=/cikisController');
+            }else{
+                echo"
+            <div class=\"container text-center \">
+                <div class=\"row \">
+                    <div class=\"col-md-3\"></div>
+                    <div class=\"col-md-6  kiralaError\">
+                        <h3 class=\" text-danger \">GİRDİĞİNİZ BİLGİLERE AİT KULLANICI BULUNAMADI. LÜTFEN FORMU DİKKATLİ DOLDURUNUZ.</h3>   
+                        <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
+                    <div>
+                </div>
+            </div>
+        ";
+            }
+            
+        }else{
+            echo"
+            <div class=\"container text-center \">
+                <div class=\"row \">
+                    <div class=\"col-md-3\"></div>
+                    <div class=\"col-md-6  kiralaError\">
+                        <h3 class=\" text-danger \">Eksik veya hatalı giriş.<br> Tekrar deneyiniz.</h3>   
+                        <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
+                    <div>
+                </div>
+            </div>
+        ";
+        }
+    }
+
 
 }
 

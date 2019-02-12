@@ -10,7 +10,10 @@
             "Controllers\\":"users/controllers/",
             "Models\\":"users/models/",
             "views\\":"users/view/",
-            "js\\":"user/public/js"
+            "js\\":"user/public/js",
+            "AdminControllers\\":"admins/controllers/",
+            "AdminModels\\":"admins/models/",
+            "AdminViews\\":"admins/views/"  
         }
     }
 }

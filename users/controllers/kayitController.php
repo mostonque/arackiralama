@@ -71,9 +71,9 @@ class kayitController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <p class=\" badge badge-danger text-light \">Kayıt işlemi başarısız. </p>   
+                        <p class=\"  text-danger \">Kayıt işlemi başarısız. </p>   
                         <div class=\"col-md-12 \">
-                            <p class=\" bg-dark  text-warning \">Girdiğiniz bilgilere ait bir kullanıcı zaten sistemde bulunmaktadır.<br><b class=\"border-bottom\"> Kayıt ol</b> sayfasına yönlendiriliyorsunuz.</p>                          
+                            <p class=\"  text-info \">Girdiğiniz bilgilere ait bir kullanıcı zaten sistemde bulunmaktadır.<br><b class=\"border-bottom\"> Kayıt ol</b> sayfasına yönlendiriliyorsunuz.</p>                          
                         </div>
                     <div>
                 </div>

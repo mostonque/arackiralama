@@ -22,7 +22,7 @@ class kiralaController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-danger text-warning \">Önce Giriş yapmalısınız.</h3>
+                        <h3 class=\" text-danger \">Önce Giriş yapmalısınız.</h3>
                         <h3 class=\" text-primary\">Sizi Giriş sayfasına yönlendiriyoruz.</h3>                            
                     <div>
                 </div>
@@ -89,8 +89,8 @@ class kiralaController extends baseController{
                                 <div class=\"row \">
                                     <div class=\"col-md-3\"></div>
                                     <div class=\"col-md-6  kiralaError\">
-                                        <h3 class=\" bg-danger text-warning \">Girdiğiniz bilgiler sistemde ki Bilgilerinizle eşleşemiyor yada Rezerve ettiğiniz arac var</h3>
-                                        <h3 class=\"bg-dark text-warning\">Sizi anasayfaya yönlendiriyoruz.</h3>                            
+                                        <h3 class=\" text-danger \">Girdiğiniz bilgiler sistemde ki Bilgilerinizle eşleşemiyor yada Rezerve ettiğiniz arac var</h3>
+                                        <h3 class=\" text-danger\">Sizi anasayfaya yönlendiriyoruz.</h3>                            
                                     <div>
                                 </div>
                             </div>
@@ -106,8 +106,8 @@ class kiralaController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\" bg-danger text-warning \">Önce Giriş yapmalısınız.</h3>
-                        <h3 class=\"bg-dark text-warning\">Sizi Giriş sayfasına yönlendiriyoruz.</h3>                            
+                        <h3 class=\" text-danger \">Önce Giriş yapmalısınız.</h3>
+                        <h3 class=\" text-info\">Sizi Giriş sayfasına yönlendiriyoruz.</h3>                            
                     <div>
                 </div>
             </div>
