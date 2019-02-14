@@ -163,6 +163,11 @@ require_once 'vendor/autoload.php';
     $findClassQuery=query($getClass);
     $classmethod=$findClassQuery[0];
 
+    if(isset($a) && !empty($a)){
+        
+    }else{
+        echo $a;
+    }
 
     #urlden girilen get parametrelerini verir
     $query=@$findClassQuery[1];
@@ -173,9 +178,6 @@ require_once 'vendor/autoload.php';
 
     $data=@call_user_func(array($controller, $classmethod));
 
-
-
-   
 
     function url($uri){
         $exploded=explode('/',substr($uri,1));

@@ -12,7 +12,9 @@ class adminIndexController extends adminBaseController{
     }
 
     public function index(){
-        $this->view('index');
+      
+            $this->view('index');
+      
     }
 
 
