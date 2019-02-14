@@ -89,13 +89,13 @@ class kiralaController extends baseController{
                                 <div class=\"row \">
                                     <div class=\"col-md-3\"></div>
                                     <div class=\"col-md-6  kiralaError\">
-                                        <h3 class=\" text-danger \">Girdiğiniz bilgiler sistemde ki Bilgilerinizle eşleşemiyor yada Rezerve ettiğiniz arac var</h3>
+                                        <h3 class=\" text-danger \">Girdiğiniz bilgiler sistemde ki Bilgilerinizle eşleşemiyor yada Rezerve ettiğiniz arac bulunmakta.</h3>
                                         <h3 class=\" text-danger\">Sizi anasayfaya yönlendiriyoruz.</h3>                            
                                     <div>
                                 </div>
                             </div>
                         ";
-                        header('Refresh:2;url=/');
+                        header('Refresh:3;url=/');
                     }
                     
                 }

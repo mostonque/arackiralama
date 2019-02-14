@@ -2,8 +2,8 @@
 return $config=array(
 $host='localhost',
 $dbname="arackiralama",
-$username='serhat',
-$password='A4techviole.,'
+$username='root',
+$password=''
 );
 
 

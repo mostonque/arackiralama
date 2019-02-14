@@ -63,7 +63,7 @@ class kayitController extends baseController{
         }else{
             $kayit=db::ornekAl()->uyeKayit($ad,$soyad,$tc,$email,$sifre,$telefon);
              
-            if($kayit===1){
+            if($kayit!==FALSE){
                 $this->view('uyeOlBasarili');
             }else{
                 echo"

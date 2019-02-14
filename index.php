@@ -23,10 +23,21 @@ require_once 'vendor/autoload.php';
     <title>ARAÇ KİRALAMA</title>
 </head>
 <body>
+
 <?php 
+ $uri=$_SERVER['REQUEST_URI'];
+ switch($uri){
+     case '/':
+     header('location:/indexController/listele');
+     
+ }
 
-
-    if(isset($_SESSION['ad']) && !empty($_SESSION['ad']))
+ $reqData=url(htmlspecialchars($uri));
+ $classname=@$reqData[0]; 
+ $userController=['cikisController','girisController','indexController','kayitController','kiralaController','profilController','yorumController','sifreUnuttumController'];
+ $adminController=['adminLoginController','adminIndexController','adminCikisController','aracEkleController','rezerveAraclarController','kiralananAraclarController','kiralanabilirAraclarController'];
+ 
+    if( in_array($classname,$userController) && isset($_SESSION['ad']) && !empty($_SESSION['ad']))
         {
             echo " 
             <div class=\"container\">
@@ -60,7 +71,7 @@ require_once 'vendor/autoload.php';
             </div>
             ";
             
-        }elseif(isset($_SESSION['yonetici_id']) ){
+        }elseif(in_array($classname,$adminController) && isset($_SESSION['yonetici_id']) ){
             echo " 
             <div class=\"container\">
                 <div class=\"row\">
@@ -73,13 +84,13 @@ require_once 'vendor/autoload.php';
                         <div class=\"collapse navbar-collapse\" id=\"navbarText\">
                             <ul class=\"navbar-nav mr-auto\">
                                 <li class=\"nav-item \">
-                                <a class=\"nav-link text-danger\" href=\"#\">Kiralanan Araçlar </a>
+                                <a class=\"nav-link text-danger\" href=\"/kiralananAraclarController/kiralananAraclar\">Kiralanan Araçlar  <span class=\"sr-only\">(current)</span></a>
                                 </li>     
                                 <li class=\"nav-item \">
-                                    <a class=\"nav-link text-danger\" href=\"#\">Rezerve Araçlar <span class=\"sr-only\">(current)</span></a>
+                                    <a class=\"nav-link text-danger\" href=\"/rezerveAraclarController/rezerveAraclar\">Rezerve Araçlar</a>
                                 </li>    
                                 <li class=\"nav-item \">
-                                    <a class=\"nav-link text-danger\" href=\"#\">Kiralanabilir Araçlar </a>
+                                    <a class=\"nav-link text-danger\" href=\"/kiralanabilirAraclarController/listele\">Kiralanabilir Araçlar </a>
                                 </li>  
                                 <li class=\"nav-item \">
                                     <a class=\"nav-link text-danger\" href=\"/aracEkleController/aracEkleForm\">Araç Ekle </a>
@@ -104,7 +115,7 @@ require_once 'vendor/autoload.php';
             </div>
             ";
 
-        }elseif($_SERVER['REQUEST_URI']!=='/adminLoginController/login' && $_SERVER['REQUEST_URI']!=='/adminLoginController/adminGiris' && !isset($_SESSION['id'])){
+        }elseif(in_array($classname,$userController) && !isset($_SESSION['ad'])){
             echo "
             <div class=\"container\">
                 <div class=\"row\">
@@ -126,24 +137,21 @@ require_once 'vendor/autoload.php';
                 </div>
             </div>";
         }
+
 ?>
 
-<?php
-    $uri=$_SERVER['REQUEST_URI'];
-    switch($uri){
-        case '/':
-        header('location:/indexController/listele');
-        
-    }
 
-    $reqData=url(htmlspecialchars($uri));
-    $classname=@$reqData[0]; 
-    $userController=['cikisController','girisController','indexController','kayitController','kiralaController','profilController','yorumController','sifreUnuttumController'];
-    $adminController=['adminLoginController','adminIndexController','adminCikisController','aracEkleController'];
-    
+<?php
+   
     $a;
     if(in_array($classname,$userController))
     {
+        if(isset($_SESSION['yonetici_id']))
+        {
+            session_destroy();
+            header('location:/');
+            $a='Controllers'; 
+        }
         $a='Controllers';  
     }elseif(in_array($classname,$adminController))
     {
@@ -154,6 +162,7 @@ require_once 'vendor/autoload.php';
     $getClass=@$reqData[1];
     $findClassQuery=query($getClass);
     $classmethod=$findClassQuery[0];
+
 
     #urlden girilen get parametrelerini verir
     $query=@$findClassQuery[1];
@@ -166,9 +175,8 @@ require_once 'vendor/autoload.php';
 
 
 
+   
 
-
-    
     function url($uri){
         $exploded=explode('/',substr($uri,1));
         return $exploded;
@@ -179,7 +187,5 @@ require_once 'vendor/autoload.php';
     };
    
 ?>
-
-
 </body>
 </html>

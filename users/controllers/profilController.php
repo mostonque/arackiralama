@@ -143,7 +143,7 @@ class profilController extends baseController{
                 <div class=\"row \">
                     <div class=\"col-md-3\"></div>
                     <div class=\"col-md-6  kiralaError\">
-                        <h3 class=\"   text-danger \">GİRDİĞİNİZ BİLGİLERE AİT KULLANICI BULUNAMADI. LÜTFEN FORMU DİKKATLİ DOLDURUNUZ.</h3>   
+                        <h3 class=\"   text-danger \">GİRDİĞİNİZ BİLGİLERE AİT BİR KULLANICI MEVCUT. LÜTFEN FARKLI BİR E-MAİL DENEYİNİZ.</h3>   
                         <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
                     <div>
                 </div>
@@ -213,7 +213,12 @@ class profilController extends baseController{
         }
     }
 
+    public function kiraladigimAraclar(){
 
+        $data=db::ornekAl()->userKiralamisArac();
+        $this->view('kiraladigimAraclar','araclar',$data);
+
+    }
 }
 
 
