@@ -56,10 +56,9 @@
     <hr>
     <div class="row">
         <div class="col-md-6"></a><button class="btn btn-warning" onClick="geri()">Geri Dön</button></div>
-        <div class="col-md-6"><form action="/kiralaController/kiralaForm" method="GET">
-                    <input type="hidden" name="id" value="<?php print $detay['id'];?>">
-                    <button type="submit" class="btn btn-primary" >&emsp;Rezerve Et&emsp;</button>
-                </form></div>
+        <div class="col-md-6">
+            <a href="arac-kirala/kirala-form/<?php print $detay['id'];?>" type="submit" class="btn btn-primary" >&emsp;Rezerve Et&emsp;</a>
+        </div>
     </div>
    
 </div> 

@@ -27,10 +27,9 @@
                                 <td> $arrayNo[yil]</td>
                                 <td> $arrayNo[yakit]</td>
                                 <td> $arrayNo[vites]</td>
-                                <td><form action=\"./DetayListele\" method=\"get\">  
-                                <input type=\"hidden\" name=\"id\"value=\"$arrayNo[id]\" >
-                                <button class=\"btn btn-sm btn-warning\" type=\"submit\" >Detay</button>
-                                </form></td>
+                                <td> 
+                                <a href=\"araclar/araclar-detay/$arrayNo[id]\" class=\"btn btn-sm btn-warning\" type=\"submit\" >Detay</a>
+                                </td>
                                 </tr>";      
                         }
                     ?>

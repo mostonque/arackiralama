@@ -1,9 +1,9 @@
 <?php
-return $config=array(
+$config=array(
 $host='localhost',
 $dbname="arackiralama",
-$username='root',
-$password=''
+$username='serhat',
+$password='A4techviole.,'
 );
 
 

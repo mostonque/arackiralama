@@ -1,14 +1,15 @@
 <?php
 
 namespace Controllers;
-use Controllers\baseController;
 
-class cikisController extends baseController{
-    function __construct(){
-        parent::__construct();
-        session_destroy();
+class cikisController {
+    
+    public function cikis(){     
+        unset($_SESSION['id'],$_SESSION['ad']);
         header('location:/');
+
     }
+
 }
 
 ?>

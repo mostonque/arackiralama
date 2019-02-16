@@ -14,6 +14,7 @@ require_once 'vendor/autoload.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="http://localhost/" >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,21 +22,46 @@ require_once 'vendor/autoload.php';
     <link rel="stylesheet" href="/users/public/css/style.css">
     <script src="/users/public/js/script.js"></script>
     <title>ARAÇ KİRALAMA</title>
+   
 </head>
 <body>
 
 <?php 
- $uri=$_SERVER['REQUEST_URI'];
- switch($uri){
-     case '/':
-     header('location:/indexController/listele');
-     
- }
+if (!isset($_GET['sayfa'])){
+    $_GET['sayfa'] = '/';
+}
+if (!isset($_GET['sayfa'])){
+    $_GET['sayfa'] = 'index';
+}
 
- $reqData=url(htmlspecialchars($uri));
+Switch ($_GET['sayfa']){
+
+    case '/':
+        $data=array('indexController','listele');
+    break;
+
+    case 'profilim':
+        $data=array('profilController','profilim');
+    break;
+
+    case 'araclar/araclar-detay':
+        $data=array('indexController','DetayListele');
+    break;
+
+    case 'arac-kirala/kirala-form':
+        $data=array('kiralaController','kiralaForm');
+    break;
+
+
+   
+}
+ 
+
+ $reqData=@$data;
+ var_dump($reqData);
  $classname=@$reqData[0]; 
  $userController=['cikisController','girisController','indexController','kayitController','kiralaController','profilController','yorumController','sifreUnuttumController'];
- $adminController=['adminLoginController','adminIndexController','adminCikisController','aracEkleController','rezerveAraclarController','kiralananAraclarController','kiralanabilirAraclarController'];
+ $adminController=['adminLoginController','adminIndexController','adminCikisController','aracEkleController','rezerveAraclarController','kiralananAraclarController','butunAraclarController','kiralanabilirAraclarController'];
  
     if( in_array($classname,$userController) && isset($_SESSION['ad']) && !empty($_SESSION['ad']))
         {
@@ -59,9 +85,9 @@ require_once 'vendor/autoload.php';
                                  <b class=\"\">". ucwords($_SESSION['ad']) ."</b>
                                 </button>
                                 <div class=\"dropdown-menu drop-menu\">
-                                    <a class=\"dropdown-item\" href=\"/profilController/profilim\">Profilim</a>
+                                    <a class=\"dropdown-item\" href=\"/profilim\">Profilim</a>
                                     <div class=\"dropdown-divider\"></div>
-                                    <a href=\"/cikisController\" class=\"text-danger text-center dropdown-item font-weight-bold\">[ ÇIKIŞ ]</a>
+                                    <a href=\"/cikisController/cikis\" class=\"text-danger text-center dropdown-item font-weight-bold\">[ ÇIKIŞ ]</a>
                                 </div>
                                 </div>
                         </div>
@@ -93,6 +119,9 @@ require_once 'vendor/autoload.php';
                                     <a class=\"nav-link text-danger\" href=\"/kiralanabilirAraclarController/listele\">Kiralanabilir Araçlar </a>
                                 </li>  
                                 <li class=\"nav-item \">
+                                    <a class=\"nav-link text-danger\" href=\"/butunAraclarController/tumAraclar\">Bütün Araçlar</a>
+                                </li>  
+                                <li class=\"nav-item \">
                                     <a class=\"nav-link text-danger\" href=\"/aracEkleController/aracEkleForm\">Araç Ekle </a>
                                 </li>
                                
@@ -105,7 +134,7 @@ require_once 'vendor/autoload.php';
                                 <div class=\"dropdown-menu drop-menu\">
                                     <!--<a class=\"dropdown-item\" href=\"/profilController/profilim\">Profilim</a>
                                     <div class=\"dropdown-divider\"></div>-->
-                                    <a href=\"/adminCikisController\" class=\"text-danger text-center dropdown-item font-weight-bold\">[ ÇIKIŞ ]</a>
+                                    <a href=\"/adminCikisController/cikis\" class=\"text-danger text-center dropdown-item font-weight-bold\">[ ÇIKIŞ ]</a>
                                 </div>
                                 </div>
                         </div>
@@ -145,13 +174,7 @@ require_once 'vendor/autoload.php';
    
     $a;
     if(in_array($classname,$userController))
-    {
-        if(isset($_SESSION['yonetici_id']))
-        {
-            session_destroy();
-            header('location:/');
-            $a='Controllers'; 
-        }
+    {   
         $a='Controllers';  
     }elseif(in_array($classname,$adminController))
     {
@@ -187,7 +210,6 @@ require_once 'vendor/autoload.php';
         $query=explode('?',$uri);
         return $query;
     };
-   
 ?>
 </body>
 </html>

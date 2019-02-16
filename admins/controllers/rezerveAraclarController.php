@@ -13,14 +13,35 @@ class rezerveAraclarController extends adminBaseController{
     }
 
     public function rezerveAraclar(){
-
-        $data=db::ornekAl()->adminRezerveAracListele();
-        $this->view('rezerveAraclar','araclar',$data);
+          
+        if (isset($_SESSION['yonetici_id']) && !empty($_SESSION['yonetici_id']) )
+            {
+                $data=db::ornekAl()->adminRezerveAracListele();
+                $this->view('rezerveAraclar','araclar',$data);
+            }else{
+                echo"
+                <div class=\"container text-center \">
+                    <div class=\"row \">
+                        <div class=\"col-md-3\"></div>
+                        <div class=\"col-md-6  kiralaError\">
+                            <h3 class=\"  text-danger \">Giriş yapmadan bu sayfayı görüntüleyemezsiniz. Sizi giriş sayfasına yönlendiriyoruz.</h3>                           
+                        <div>
+                    </div>
+                </div>
+            ";
+            header('Refresh:2; url=/adminLoginController/login');
+            }
+        
 
     }
 
-    public function kirala(){
 
+
+
+    public function kirala(){
+        if (isset($_SESSION['yonetici_id']) && !empty($_SESSION['yonetici_id']) )
+            {
+               
         if(isset($_GET['kirala']) && $_GET['kirala']==='kirala' ){
           
             $data=db::ornekAl()->kirala(htmlspecialchars(stripslashes(trim($_GET['idArac']))),htmlspecialchars(stripslashes(trim($_GET['usrId']))),htmlspecialchars(stripslashes(trim($_GET['rezerveGun']))));
@@ -94,6 +115,20 @@ class rezerveAraclarController extends adminBaseController{
         header('Refresh:2; url=/rezerveAraclarController/rezerveAraclar');
             }
         }
+            }else{
+                echo"
+                <div class=\"container text-center \">
+                    <div class=\"row \">
+                        <div class=\"col-md-3\"></div>
+                        <div class=\"col-md-6  kiralaError\">
+                            <h3 class=\"  text-danger \">Giriş yapmadan bu sayfayı görüntüleyemezsiniz. Sizi giriş sayfasına yönlendiriyoruz.</h3>                           
+                        <div>
+                    </div>
+                </div>
+            ";
+            header('Refresh:2; url=/adminLoginController/login');
+            }
+        
     }
 
     

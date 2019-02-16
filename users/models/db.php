@@ -76,7 +76,8 @@ class db{
 
             $ekle=$this->baglanti->prepare("INSERT INTO rezervearac(idArac,idUser,rezerveGun,durum) VALUES(:idArac,:idUser,:rezerveGun,:durum)");
             $ekle->execute(['idArac'=>$aracId,'idUser'=>$kullaniciId,'rezerveGun'=>$gun,'durum'=>'1']);
-            $ekle->fetchAll(\PDO::FETCH_ASSOC);
+            $data=$ekle->fetchAll(\PDO::FETCH_ASSOC);
+            
             return $ekle;
             }
         }else{

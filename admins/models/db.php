@@ -56,6 +56,21 @@ class db{
         $this->baglanti=NULL;
     }
 
+    
+    public function adminAracGuncelle($marka,$seri,$model,$yil,$yakit,$vites,$km,$kasaTipi,$cekis,$motorGucu,$motorHacmi,$durum,$aracId){
+        $query=$this->baglanti->prepare("UPDATE araclar SET marka=:marka, seri=:seri, model=:model, yil=:yil, yakit=:yakit, vites=:vites,km=:km,
+                                                kasaTipi=:kasaTipi, cekis=:cekis, motorGucu=:motorGucu, motorHacmi=:motorHacmi, durum=:durum WHERE id=:aracId");
+        
+        $query->execute(['marka'=>$marka,'seri'=>$seri,'model'=>$model,'yil'=>$yil,'yakit'=>$yakit,'vites'=>$vites,'km'=>$km,
+                         'kasaTipi'=>$kasaTipi,'cekis'=>$cekis,'motorGucu'=>$motorGucu,'motorHacmi'=>$motorHacmi,'durum'=>$durum,'aracId'=>$aracId]);                  
+        
+        $data=$query->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $data;
+
+        $this->baglanti=NULL;
+    }
+
     public function adminRezerveAracListele(){
       
         $query=$this->baglanti->prepare("SELECT * FROM rezervearac INNER JOIN araclar ON rezervearac.idArac = araclar.id INNER JOIN users ON rezervearac.idUser = users.id WHERE rezervearac.durum=1");
@@ -65,6 +80,7 @@ class db{
 
         $this->baglanti=NULL;
     }
+
 
     public function kirala($idArac,$usrId,$rezerveGun){
        
@@ -116,6 +132,25 @@ class db{
         $data=$query->fetchAll(\PDO::FETCH_ASSOC);
         return $data;
         $this->baglanti=NULL;
+    }
+
+    public function tumAraclarListele($idArac=NULL){
+
+        if(!isset($idArac) && $idArac===NULL){
+
+            $query=$this->baglanti->prepare("SELECT * FROM araclar");
+            $query->execute();
+            $data=$query->fetchAll(\PDO::FETCH_ASSOC);
+            return $data;
+
+        }else{
+
+            $query=$this->baglanti->prepare("SELECT * FROM araclar WHERE id=:idArac");
+            $query->execute(['idArac'=>$idArac]);
+            $data=$query->fetchAll(\PDO::FETCH_ASSOC);
+            return $data;
+        }
+
     }
 
 }

@@ -12,11 +12,7 @@ class adminLoginController extends adminBaseController{
 
     public function login(){
         
-        if(isset($_SESSION['id']) && !empty($_SESSION['id']))
-        {
-            session_destroy();
-            header('location:/adminLoginController/login');
-        }elseif(isset($_SESSION['yonetici_id']) && isset($_SESSION['yonetici_ad'])){
+       if(isset($_SESSION['yonetici_id']) && isset($_SESSION['yonetici_ad'])){
             header('location:/adminIndexController/index');
         }else{
             $this->view('adminLogin');

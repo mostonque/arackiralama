@@ -41,10 +41,12 @@
                                   Kişisine <br> Kiralamak istediğinize emin misiniz?
                                 </div>
                                 <div class=\"modal-footer\">
-                                    <form action=\"/rezerveAraclarController/kirala\" method=\"GET\">                                 
+                                    <form action=\"/rezerveAraclarController/kirala\" method=\"GET\">
+                                        <input type=\"hidden\" name=\"rezerveGun\" value=\"$arac[rezerveGun]\">                                         
+                                        <input type=\"hidden\" name=\"usrId\" value=\"$arac[id]\">                                         
                                         <input type=\"hidden\" name=\"idArac\" value=\"$arac[idArac]\">
                                         <button type=\"submit\" name=\"kirala\" value=\"kirala\" class=\"btn btn-primary\">Kirala</button>
-                                    </form>
+                                    <form>
                                     
                                 </div>
                                 </div>
@@ -76,7 +78,7 @@
                                 <form action=\"/rezerveAraclarController/kirala\" method=\"GET\">                                        
                                     <input type=\"hidden\" name=\"idArac\" value=\"$arac[idArac]\">
                                     <button type=\"submit\" name=\"reddet\" value=\"reddet\" class=\"btn btn-danger\">Reddet</button>
-                                </form>
+                                <form>
                                     
                                 </div>
                                 </div>
