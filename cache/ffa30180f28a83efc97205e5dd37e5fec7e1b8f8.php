@@ -1,6 +1,6 @@
 <div class = "container">
 	<div class="wrapper">
-        <form action="/aracEkleController/aracEkle" method="POST"> 
+        <form action="/admin/rezerve-araclar/duzenle/arac-duzenle" method="POST"> 
             <div class="row">
                         <?php $arac=$arac[0];?>
                     <div class="col-3 offset-3 mt-2">

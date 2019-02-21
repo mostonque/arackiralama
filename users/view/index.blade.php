@@ -28,7 +28,7 @@
                                 <td> $arrayNo[yakit]</td>
                                 <td> $arrayNo[vites]</td>
                                 <td> 
-                                <a href=\"araclar/araclar-detay/$arrayNo[id]\" class=\"btn btn-sm btn-warning\" type=\"submit\" >Detay</a>
+                                <a href=\"araclar/detay/$arrayNo[id]\" class=\"btn btn-sm btn-warning\" type=\"submit\" >Detay</a>
                                 </td>
                                 </tr>";      
                         }

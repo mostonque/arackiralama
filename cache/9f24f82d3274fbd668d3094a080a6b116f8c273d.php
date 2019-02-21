@@ -5,7 +5,6 @@
         <?php
             if(isset($araclar)&&!empty($araclar)){
             foreach($araclar as $arac){
-
                 echo "<div class=\"col-md-3 mt-5\">
                 <div class=\"card text-center\">
                     <div class=\"card-header\">
@@ -41,8 +40,10 @@
                                   Kişisine <br> Kiralamak istediğinize emin misiniz?
                                 </div>
                                 <div class=\"modal-footer\">
-                                    <form action=\"/rezerveAraclarController/kirala\" method=\"GET\">                                 
+                                    <form action=\"/admin/rezerve-araclar/kirala\" method=\"GET\">                                 
                                         <input type=\"hidden\" name=\"idArac\" value=\"$arac[idArac]\">
+                                        <input type=\"hidden\" name=\"usrId\" value=\"$arac[idUser]\">
+                                        <input type=\"hidden\" name=\"rezerveGun\" value=\"$arac[rezerveGun]\">
                                         <button type=\"submit\" name=\"kirala\" value=\"kirala\" class=\"btn btn-primary\">Kirala</button>
                                     </form>
                                     
@@ -73,7 +74,7 @@
                                   Kişisinin <br> Rezervasyonunu İptal Etmek istediğinize emin misiniz?
                                 </div>
                                 <div class=\"modal-footer\">
-                                <form action=\"/rezerveAraclarController/kirala\" method=\"GET\">                                        
+                                <form action=\"/admin/rezerve-araclar/reddet\" method=\"GET\">                                        
                                     <input type=\"hidden\" name=\"idArac\" value=\"$arac[idArac]\">
                                     <button type=\"submit\" name=\"reddet\" value=\"reddet\" class=\"btn btn-danger\">Reddet</button>
                                 </form>

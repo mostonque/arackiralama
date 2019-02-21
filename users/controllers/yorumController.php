@@ -16,15 +16,27 @@ class yorumController extends baseController{
             if(isset($_POST['idArac']) && trim($_POST['idArac']) &&!empty($_POST['idArac'])){
                 $idArac=htmlspecialchars(stripslashes(trim($_POST{'idArac'})));
             }else{
-                echo "Aracınız anlaşılamadı.Lütfen sayfayı yenileyip tekrar deneyiniz.";
+                $hata= "Aracınız anlaşılamadı.Lütfen sayfayı yenileyip tekrar deneyiniz.";
             }
             
             if(isset($_POST['yorum']) && trim($_POST['yorum']) &&!empty($_POST['yorum']) && strlen($_POST['yorum'])>=5 ){
                 $yorum=htmlspecialchars(stripslashes(trim($_POST{'yorum'})));
             }else{
-                echo "Yorumunuz gönderilemedi.Yorumunuzun en az 5 karakter olduğundan emin olunuz.";
+                $hata= "Yorumunuz gönderilemedi.Yorumunuzun en az 5 karakter olduğundan emin olunuz.";
             }
-            
+            if(isset($hata) && !empty($hata)){
+                echo"
+                <div class=\"container text-center \">
+                    <div class=\"row \">
+                        <div class=\"col-md-3\"></div>
+                        <div class=\"col-md-6  kiralaError\">
+                            <h3 class=\" badge badge-dark text-warning \">$hata</h3>   
+                            <button class=\"btn btn-warning\" onClick=\"geri()\">Geri Dön</button>                           
+                        <div>
+                    </div>
+                </div>
+            ";
+            }else{
             $yorumGonder=db::ornekAl()->yorumEkle($_SESSION['id'],$_SESSION['ad'],$idArac,$yorum);
             if($yorumGonder)
             {echo"
@@ -51,6 +63,7 @@ class yorumController extends baseController{
         ";
         header('Refresh:2; url=/indexController/DetayListele?id='.$idArac);
             }
+        }
 
         }else{
             echo"
@@ -63,7 +76,7 @@ class yorumController extends baseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/girisController/girisPage');
+        header('Refresh:2;url=/giris');
         }
 
     }

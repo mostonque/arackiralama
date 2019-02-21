@@ -71,7 +71,7 @@ class rezerveAraclarController extends adminBaseController{
         mail($kime,$konu,$message);
         
         //MAİL GÖNDERME BİTİŞ
-        header('Refresh:2; url=/kiralananAraclarController/kiralananAraclar');
+        header('Refresh:2; url=/admin/kiralanan-araclar');
             }else{
                 echo"
             <div class=\"container text-center \">
@@ -83,7 +83,7 @@ class rezerveAraclarController extends adminBaseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/rezerveAraclarController/rezerveAraclar');
+        header('Refresh:2; url=/admin/rezerve-araclar');
             }
         }else{
 
@@ -100,7 +100,7 @@ class rezerveAraclarController extends adminBaseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/kiralananAraclarController/kiralananAraclar');
+        header('Refresh:2; url=/admin/kiralanan-araclar');
             }else{
                 echo"
             <div class=\"container text-center \">
@@ -112,7 +112,7 @@ class rezerveAraclarController extends adminBaseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/rezerveAraclarController/rezerveAraclar');
+        header('Refresh:2; url=/admin/rezerve-araclar');
             }
         }
             }else{
@@ -126,7 +126,7 @@ class rezerveAraclarController extends adminBaseController{
                     </div>
                 </div>
             ";
-            header('Refresh:2; url=/adminLoginController/login');
+            header('Refresh:2; url=/yonetim/login');
             }
         
     }

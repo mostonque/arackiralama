@@ -28,7 +28,7 @@ class kiralaController extends baseController{
                 </div>
             </div>
         ";
-        header('Refresh:2;url=/girisController/girisPage');
+        header('Refresh:2;url=/giris');
         exit;
         }
     }
@@ -112,7 +112,7 @@ class kiralaController extends baseController{
                 </div>
             </div>
         ";
-        header('Refresh:2;url=/girisController/girisPage');
+        header('Refresh:2;url=/giris');
         }
         
     }

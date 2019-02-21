@@ -2,10 +2,10 @@
     <div class="row ">
         <div class="col-2 ml-4 mr-5">
         <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item "  href="/profilController/profilim" role="tab" aria-controls="home">Üyelik Bilgilerim</a>
-            <a class="list-group-item "  href="/profilController/kiraladigimAraclar" role="tab" aria-controls="profile">Kiraladığım Araçlar</a>
-            <a class="list-group-item "  href="/profilController/rezerveAraclarim" role="tab" aria-controls="messages">Rezerve Ettiğim Araçlar</a>
-            <a class="list-group-item "  href="/profilController/uyelikBilgileriDegistir" role="tab" aria-controls="messages">Üyelik Bilgilerimi Değiştir</a>   
+            <a class="list-group-item "  href="/profil/uyelik-bilgilerim" role="tab" aria-controls="home">Üyelik Bilgilerim</a>
+            <a class="list-group-item "  href="/profil/kiraladigim-araclar" role="tab" aria-controls="profile">Kiraladığım Araçlar</a>
+            <a class="list-group-item "  href="/profil/rezerve-araclarim" role="tab" aria-controls="messages">Rezerve Ettiğim Araçlar</a>
+            <a class="list-group-item "  href="/profil/uyelik-bilgileri-degistir" role="tab" aria-controls="messages">Üyelik Bilgilerimi Değiştir</a>   
             </div>
         </div>
         <div class="col-7 ml-1 text-center ">
@@ -50,7 +50,7 @@
                         </tbody>
                     </table>";
                     }else{
-                        echo '<h3 class="text-success">REZERVE ARACINIZ BULUNMAMAKTADIR.</h3>';
+                        echo '<h3 class="mt-5 text-success">REZERVE ARACINIZ BULUNMAMAKTADIR.</h3>';
                     }
                 ?>
 

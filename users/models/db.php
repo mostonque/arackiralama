@@ -29,7 +29,7 @@ class db{
     }
     public function aracListele()
     {
-        $query=$this->baglanti->prepare("SELECT * FROM araclar WHERE durum=0");
+        $query=$this->baglanti->prepare("SELECT * FROM araclar WHERE durum=0 ORDER BY marka ASC");
         $query->execute();
         $data=$query->fetchAll(\PDO::FETCH_ASSOC);
         return $data;
@@ -48,7 +48,7 @@ class db{
     {
 
         $query = $this->baglanti->prepare("SELECT * FROM yorumlar WHERE idArac=:id AND durum=:durum");
-        $query->execute(['id' => $idArac,'durum'=>'1']); 
+        $query->execute(['id' => $idArac,'durum'=>'2']); 
         $data = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $data;
         $this->baglanti=NULL;
@@ -120,7 +120,7 @@ class db{
             return FALSE;
         }else{
         $add=$this->baglanti->prepare("INSERT INTO yorumlar(idUser,nameUser,idArac,yorum,durum) VALUES(:idUser,:nameUser,:idArac,:yorum,:durum)");
-        $add->execute(['idUser'=>$idUser,'nameUser'=>$nameUser,'idArac'=>$idArac,'yorum'=>$yorum,'durum'=>'0']);
+        $add->execute(['idUser'=>$idUser,'nameUser'=>$nameUser,'idArac'=>$idArac,'yorum'=>$yorum,'durum'=>'1']);
         $add->fetchAll(\PDO::FETCH_ASSOC);
         return $add;
         }
@@ -137,8 +137,8 @@ class db{
 
     }
     
-    public function uyeRezerveArac(){
-        $query=$this->baglanti->prepare("SELECT * FROM rezervearac INNER JOIN araclar WHERE rezervearac.idArac = araclar.id AND idUser=:sesId AND durum=:durum ");
+    public function uyeRezerveArac(){   
+        $query=$this->baglanti->prepare("SELECT * FROM rezervearac INNER JOIN araclar WHERE rezervearac.idArac = araclar.id AND rezervearac.idUser=:sesId AND rezervearac.durum=:durum ");
         $query->execute(['sesId'=>$_SESSION['id'],'durum'=>'1']);
         $data=$query->fetchAll(\PDO::FETCH_ASSOC);
         return $data;
@@ -186,10 +186,18 @@ class db{
         $data=$query->fetchAll(\PDO::FETCH_ASSOC);
         if(count($data)===1 && $data[0]['mail']!==$email)
         {
-            $query=$this->baglanti->prepare("UPDATE users SET mail=:mail Where id=:sesId");
-            $query->execute(['mail'=>$email,'sesId'=>$_SESSION['id']]);
-            $data=$query->fetchAll(\PDO::FETCH_ASSOC);
-            return $data;
+            $mailControl=$this->baglanti->prepare("SELECT `mail` FROM `users` WHERE mail=:mail");
+            $mailControl->execute(['mail'=>$email]);
+            $data=$mailControl->fetchAll(\PDO::FETCH_ASSOC);
+            if(isset($data) && !empty($data)){
+                return FALSE;
+            }else{
+                $query=$this->baglanti->prepare("UPDATE users SET mail=:mail Where id=:sesId");
+                $query->execute(['mail'=>$email,'sesId'=>$_SESSION['id']]);
+                $data=$query->fetchAll(\PDO::FETCH_ASSOC);
+                return $data;
+            }
+            
         }else{
             return FALSE;
         }

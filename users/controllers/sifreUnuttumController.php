@@ -40,7 +40,7 @@ class sifreUnuttumController extends baseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/girisController/girisPage');
+        header('Refresh:2;url=/giris');
             }else{
                 echo"
             <div class=\"container text-center \">

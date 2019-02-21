@@ -3,7 +3,7 @@
 				<div class="ilkDivOrta">
                 <h5>Car Rental</h5>
                 <hr class="border ">
-					<form class="" method="post" action="/kayitController/kayitOlControl">
+					<form class="" method="post" action="kayit-ol/kayit">
 						
 						<div class="form-group">
 							<label for="ad">Adınız</label>

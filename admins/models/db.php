@@ -73,7 +73,7 @@ class db{
 
     public function adminRezerveAracListele(){
       
-        $query=$this->baglanti->prepare("SELECT * FROM rezervearac INNER JOIN araclar ON rezervearac.idArac = araclar.id INNER JOIN users ON rezervearac.idUser = users.id WHERE rezervearac.durum=1");
+        $query=$this->baglanti->prepare("SELECT * FROM rezervearac INNER JOIN araclar ON rezervearac.idArac = araclar.id INNER JOIN users ON rezervearac.idUser = users.id WHERE rezervearac.durum=1 ORDER BY araclar.marka ASC");
         $query->execute();
         $data=$query->fetchAll(\PDO::FETCH_ASSOC);
         return $data;
@@ -119,7 +119,7 @@ class db{
     }
 
     public function kiralanmisAraclar(){
-        $query=$this->baglanti->prepare("SELECT * FROM araclar INNER JOIN kiralanmisaraclar INNER JOIN users WHERE araclar.durum=2 AND araclar.id = kiralanmisaraclar.idArac AND kiralanmisaraclar.idUser = users.id");
+        $query=$this->baglanti->prepare("SELECT * FROM araclar INNER JOIN kiralanmisaraclar INNER JOIN users WHERE araclar.durum=2 AND araclar.id = kiralanmisaraclar.idArac AND kiralanmisaraclar.idUser = users.id ORDER BY araclar.marka ASC");
         $query->execute();
         $data=$query->fetchAll(\PDO::FETCH_ASSOC);
         return $data;
@@ -127,7 +127,7 @@ class db{
     }
 
     public function kiralanabilirAraclar(){
-        $query=$this->baglanti->prepare("SELECT * FROM araclar WHERE durum=0");
+        $query=$this->baglanti->prepare("SELECT * FROM araclar WHERE durum=0 ORDER BY marka ASC");
         $query->execute();
         $data=$query->fetchAll(\PDO::FETCH_ASSOC);
         return $data;
@@ -138,20 +138,42 @@ class db{
 
         if(!isset($idArac) && $idArac===NULL){
 
-            $query=$this->baglanti->prepare("SELECT * FROM araclar");
+            $query=$this->baglanti->prepare("SELECT * FROM araclar ORDER BY marka ASC");
             $query->execute();
             $data=$query->fetchAll(\PDO::FETCH_ASSOC);
             return $data;
 
         }else{
 
-            $query=$this->baglanti->prepare("SELECT * FROM araclar WHERE id=:idArac");
+            $query=$this->baglanti->prepare("SELECT * FROM araclar WHERE id=:idArac ");
             $query->execute(['idArac'=>$idArac]);
             $data=$query->fetchAll(\PDO::FETCH_ASSOC);
             return $data;
         }
 
     }
+
+    public function yorumlar(){
+        $query=$this->baglanti->prepare("SELECT * FROM araclar INNER JOIN yorumlar WHERE yorumlar.idArac=araclar.id AND yorumlar.durum=:durum");
+        $query->execute(['durum'=>'1']);
+        $data=$query->fetchAll(\PDO::FETCH_ASSOC);
+        return $data;
+    }
+    
+    public function yorumOnayla($yorumid){
+        $query=$this->baglanti->prepare("UPDATE `yorumlar` SET `durum`=:durum WHERE id=:id");
+        $query->execute(['durum'=>'2','id'=>$yorumid]);
+        $data=$query->fetchAll(\PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function yorumsil($yorumid){
+        $query=$this->baglanti->prepare("UPDATE `yorumlar` SET `durum`=:durum WHERE id=:id");
+        $query->execute(['durum'=>'3','id'=>$yorumid]);
+        $data=$query->fetchAll(\PDO::FETCH_ASSOC);
+        return $data;
+    }
+
 
 }
 

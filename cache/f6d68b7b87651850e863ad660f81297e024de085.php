@@ -1,6 +1,6 @@
 <div class = "container">
 	<div class="wrapper">
-		<form action="/adminLoginController/adminGiris" method="post"  class="form-signin">       
+		<form action="/yonetim/login-control" method="post"  class="form-signin">       
 		    <h1 class="form-signin-heading">Car Rental</h1>
             <hr class="colorgraph">
             <h4 class="form-signin-heading">Admin Panel</h4>

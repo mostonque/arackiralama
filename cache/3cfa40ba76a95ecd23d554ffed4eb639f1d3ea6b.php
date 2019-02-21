@@ -1,6 +1,6 @@
 <div class = "container">
 	<div class="wrapper">
-        <form action="/aracEkleController/aracEkle" method="POST"> 
+        <form action="/admin/arac-ekle-form/arac-ekle" method="POST"> 
             <div class="row">
                     <div class="col-3 offset-3 mt-2">
                         <label for="marka">Marka</label>

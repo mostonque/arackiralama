@@ -42,7 +42,7 @@ class profilController extends baseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/cikisController');
+        header('Refresh:2; url=/cikis');
             }else{
                 echo"
             <div class=\"container text-center \">
@@ -89,7 +89,7 @@ class profilController extends baseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/profilController/profilim');
+        header('Refresh:2; url=/profil');
             }else{
                 echo"
             <div class=\"container text-center \">
@@ -136,7 +136,7 @@ class profilController extends baseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/profilController/profilim');
+        header('Refresh:2; url=/profil');
             }else{
                 echo"
             <div class=\"container text-center \">
@@ -183,7 +183,7 @@ class profilController extends baseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/cikisController');
+        header('Refresh:2; url=/cikis');
             }else{
                 echo"
             <div class=\"container text-center \">

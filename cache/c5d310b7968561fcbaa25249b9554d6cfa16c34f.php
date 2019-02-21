@@ -70,6 +70,7 @@
             <table class="table table-striped">
                 <?php
                echo "<h3 class=\" mt-3 mb-4 text-light text-center bg-info \">ARAÇ YORUMLARI</h3>";
+               
                 if(sizeof($detay2[1])>0)
                 {
                     for($i=0;$i<=sizeof($detay2[1])-1;$i++){
@@ -101,7 +102,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-2">
-            <form method="POST" action="/yorumController/yorumGonder">
+            <form method="POST" action="/yorum-gonder">
                 <div class="form-group mt-5">
                     <textarea class="form-control" name="yorum" required id="exampleFormControlTextarea1" placeholder="Araç hakkındaki görüşlerinizi belirtebilirsiniz." rows="3"></textarea>
                     <input type="hidden" name="idArac" value="<?php print $_GET['id']; ?>">

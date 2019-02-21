@@ -26,7 +26,7 @@ class aracEkleController extends adminBaseController{
                     </div>
                 </div>
             ";
-            header('Refresh:2; url=/adminLoginController/login');
+            header('Refresh:2; url=/yonetim/login');
             }
     }
 
@@ -136,7 +136,7 @@ class aracEkleController extends adminBaseController{
                         </div>
                     </div>
                 ";
-                header('Refresh:2; url=/butunAraclarController/tumAraclar');
+                header('Refresh:2; url=/admin/butun-araclar');
                 }else{
                     echo"
                     <div class=\"container text-center \">
@@ -251,7 +251,7 @@ class aracEkleController extends adminBaseController{
                         </div>
                     </div>
                 ";
-                header('Refresh:2; url=/aracEkleController/aracEkleForm');
+                header('Refresh:2; url=/admin/arac-ekle-form');
                 }else{
                     echo"
                     <div class=\"container text-center \">
@@ -280,7 +280,7 @@ class aracEkleController extends adminBaseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/adminLoginController/login');
+        header('Refresh:2; url=/yonetim/login');
         }
 
         

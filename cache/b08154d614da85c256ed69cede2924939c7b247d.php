@@ -2,10 +2,10 @@
     <div class="row ">
         <div class="col-2 ml-4 mr-5">
         <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item "  href="/profilController/profilim" role="tab" aria-controls="home">Üyelik Bilgilerim</a>
-            <a class="list-group-item "  href="#list-profile" role="tab" aria-controls="profile">Kiraladığım Araçlar</a>
-            <a class="list-group-item "  href="/profilController/rezerveAraclarim" role="tab" aria-controls="messages">Rezerve Ettiğim Araçlar</a>
-            <a class="list-group-item "  href="/profilController/uyelikBilgileriDegistir" role="tab" aria-controls="messages">Üyelik Bilgilerimi Değiştir</a>   
+            <a class="list-group-item "  href="/profil/uyelik-bilgilerim" role="tab" aria-controls="home">Üyelik Bilgilerim</a>
+            <a class="list-group-item "  href="/profil/kiraladigim-araclar" role="tab" aria-controls="profile">Kiraladığım Araçlar</a>
+            <a class="list-group-item "  href="/profil/rezerve-araclarim" role="tab" aria-controls="messages">Rezerve Ettiğim Araçlar</a>
+            <a class="list-group-item "  href="/profil/uyelik-bilgileri-degistir" role="tab" aria-controls="messages">Üyelik Bilgilerimi Değiştir</a>   
             </div>
         </div>
         <div class="col-7 ml-1  ">
@@ -23,7 +23,7 @@
                     <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
                         
                         <div class="col-md-3 offset-5">
-                            <form action="/profilController/isimDegistir" method="POST">
+                            <form action="/profil/uyelik-bilgileri-degistir/isim-degistir" method="POST">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Sistemde Kayıtlı Tc Numaranız</label>
                                     <input type="text" required maxlength="11" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tc" placeholder="Sistemde kayıtlı olan TC'nizi giriniz.">
@@ -45,7 +45,7 @@
                     <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                     
                     <div class="col-md-3 offset-5">
-                            <form action="/profilController/soyisimDegistir" method="POST">
+                            <form action="/profil/uyelik-bilgileri-degistir/soyisim-degistir" method="POST">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Sistemde Kayıtlı Tc Numaranız</label>
                                     <input type="text" required maxlength="11" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tc" placeholder="Sistemde kayıtlı olan TC'nizi giriniz.">
@@ -70,7 +70,7 @@
                     <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                     
                     <div class="col-md-3 offset-5">
-                            <form action="/profilController/emailDegistir" method="POST">
+                            <form action="/profil/uyelik-bilgileri-degistir/email-degistir" method="POST">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Sistemde Kayıtlı Tc Numaranız</label>
                                     <input type="text" required maxlength="11" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tc" placeholder="Sistemde kayıtlı olan TC'nizi giriniz.">
@@ -89,7 +89,7 @@
                     <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
                     
                     <div class="col-md-3 offset-5">
-                            <form action="/profilController/sifreDegistir" method="POST">
+                            <form action="/profil/uyelik-bilgileri-degistir/sifre-degistir" method="POST">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Sistemde Kayıtlı Tc Numaranız</label>
                                     <input type="text" required maxlength="11" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tc" placeholder="Sistemde kayıtlı olan TC'nizi giriniz.">

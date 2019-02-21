@@ -13,7 +13,7 @@ class adminLoginController extends adminBaseController{
     public function login(){
         
        if(isset($_SESSION['yonetici_id']) && isset($_SESSION['yonetici_ad'])){
-            header('location:/adminIndexController/index');
+            header('location:/admin');
         }else{
             $this->view('adminLogin');
         }
@@ -43,7 +43,7 @@ class adminLoginController extends adminBaseController{
                             </div>
                         </div>
                     ";
-                header('Refresh:2; url=/adminIndexController/index');
+                header('Refresh:2; url=/admin');
             }else{
                 echo"
             <div class=\"container text-center \">

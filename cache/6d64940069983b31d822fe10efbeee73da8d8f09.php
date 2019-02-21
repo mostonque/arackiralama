@@ -1,6 +1,6 @@
 <div class = "container">
 	<div class="wrapper">
-		<form action="/girisController/girisControl" method="post" name="Login_Form" class="form-signin">       
+		<form action="/giris-control" method="post" name="Login_Form" class="form-signin">       
 		    <h1 class="form-signin-heading">Car Rental</h1>
 			  <hr class="colorgraph"><br>
 			  

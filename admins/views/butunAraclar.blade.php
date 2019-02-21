@@ -1,6 +1,6 @@
 
 <div class="container ">
-    <div class="row mt-5 mb-3">
+    <div class="row mt-5 mb-5 ">
         <?php  
             foreach($araclar as $arac){
                 echo " 
@@ -43,12 +43,15 @@
                 </tr>
                 </tbody>
                 </table>
-                <form class=\"\" action=\"/butunAraclarController/araciDuzenle\" method=\"GET\">                                        
+                <form class=\"d-inline-block\" action=\"/admin/rezerve-araclar/duzenle\" method=\"GET\">                                        
                     <input type=\"hidden\" name=\"idArac\" value=\"$arac[id]\">
                     <button type=\"submit\" name=\"arac\" value=\"duzenle\" class=\"btn ml-2 btn-outline-success\">Düzenle</button>
-                    <button type=\"submit\" name=\"arac\" value=\"sil\" class=\"btn ml-5 btn-outline-danger\">Aracı Sil</button>
                 </form>
-                   
+                <form class=\"d-inline-block \" action=\"/admin/rezerve-araclar/sil\" method=\"GET\">                                        
+                    <input type=\"hidden\" name=\"idArac\" value=\"$arac[id]\">
+                     <button type=\"submit\" name=\"arac\" value=\"sil\" class=\"btn ml-5 btn-outline-danger\">Aracı Sil</button>
+                </form>
+                  
                 </div>
                 ";
                     

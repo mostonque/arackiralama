@@ -19,7 +19,7 @@ $detay=$aracDetay[0];
 				<small class="badge badge-light">Bilgilerinizi girip aracınızı kiralayabilirsiniz</small>
 				</div>
 				<br>
-				<form class="form-horizontal" method="POST" action="/kiralaController/kirala">
+				<form class="form-horizontal" method="POST" action="/arac-kirala/kirala">
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 badge badge-warning control-label">Ad</label>
 							<div class="cols-sm-10">
@@ -113,6 +113,6 @@ $detay=$aracDetay[0];
 			</div>
 		</div>
 
-		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+		
  
  

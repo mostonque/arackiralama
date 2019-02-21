@@ -6,7 +6,7 @@
                 
                 echo " 
                 <div class=\"col-md-3 p-4 border border-danger  d-inline-block mt-4\">
-                <table class=\"table  table-sm  table-striped\">
+                <table class=\"table  table-sm   table-striped\">
                 <tbody>
                 <tr>
                 <th scope=\"row\">Marka</th>

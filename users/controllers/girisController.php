@@ -52,7 +52,7 @@ class girisController extends baseController{
                 </div>
             </div>
         ";
-        header('Refresh:2; url=/girisController/girisPage');
+        header('Refresh:2;url=/giris');
             }
 
         }else{

@@ -6,11 +6,11 @@
                 <p class="lead onay text-center text-light  ">✓</p>
             </div>
             <div class="col-md-6 offset-3">
-                <p class="lead text-center bg-success text-light">Üyeliğiniz Başarılı Şekilde Tamamlanmıştır.<br> Anasayfaya yönlendiriliyorsunuz.</p>
+                <p class="lead text-center bg-success text-light">Üyeliğiniz Başarılı Şekilde Tamamlanmıştır.<br> Giriş Sayfasına yönlendiriliyorsunuz.</p>
             </div>
         </div>
     </div>
 </div>
 <?php
-header('Refresh:3; url=/');
+header('Refresh:3; url=/giris');
 ?>
